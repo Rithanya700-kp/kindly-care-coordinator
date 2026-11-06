@@ -28,3 +28,5 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Hospital data (appointments, availability) lives in localStorage via src/lib/hospital.ts; pure slot/token rules live in src/lib/booking.ts so they stay unit-tested. Why: demo must run with no backend.
