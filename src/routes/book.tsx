@@ -10,9 +10,9 @@ import { PageHero, DemoBanner } from "@/components/SiteLayout";
 import { Receipt } from "@/components/Receipt";
 
 export const Route = createFileRoute("/book")({
-  validateSearch: (s: Record<string, unknown>): { dept?: string; doctor?: string } => ({
-    dept: typeof s.dept === "string" ? s.dept : undefined,
-    doctor: typeof s.doctor === "string" ? s.doctor : undefined,
+  validateSearch: (s: Record<string, unknown>): { dept?: string | undefined; doctor?: string | undefined } => ({
+    dept: typeof s["dept"] === "string" ? s["dept"] : undefined,
+    doctor: typeof s["doctor"] === "string" ? s["doctor"] : undefined,
   }),
   head: () => ({ meta: meta("Book Appointment – SmartCare", "Book a doctor appointment at Adichunchanagiri Hospital and get your queue token instantly.") }),
   component: Book,

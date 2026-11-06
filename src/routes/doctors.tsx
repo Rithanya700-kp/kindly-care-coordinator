@@ -5,7 +5,7 @@ import { meta } from "@/lib/meta";
 import { PageHero, DemoBanner } from "@/components/SiteLayout";
 
 export const Route = createFileRoute("/doctors")({
-  validateSearch: (s: Record<string, unknown>): { dept?: string } => ({ dept: typeof s.dept === "string" ? s.dept : undefined }),
+  validateSearch: (s: Record<string, unknown>): { dept?: string | undefined } => ({ dept: typeof s["dept"] === "string" ? s["dept"] : undefined }),
   head: () => ({ meta: meta("Doctors – SmartCare Adichunchanagiri Hospital", "Browse doctors by department, view OPD schedules and book an appointment.") }),
   component: Doctors,
 });
