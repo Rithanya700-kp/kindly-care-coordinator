@@ -24,9 +24,9 @@ function Dashboard() {
   const doSearch = (e: React.FormEvent) => {
     e.preventDefault();
     const id = q.trim().toUpperCase();
-    if (!id) return toast.error("Enter an appointment ID");
+    if (!id) { toast.error("Enter an appointment ID"); return; }
     const a = appointments.find((x) => x.id.toUpperCase() === id);
-    if (!a) { setFound(null); return toast.error("No appointment found with that ID"); }
+    if (!a) { setFound(null); toast.error("No appointment found with that ID"); return; }
     setFound(a.id);
   };
   const cancel = (a: Appointment) => {
