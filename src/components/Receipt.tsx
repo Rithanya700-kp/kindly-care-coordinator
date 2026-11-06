@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { Cross } from "lucide-react";
 import type { Appointment } from "@/lib/booking";
 import { dept, doctor } from "@/lib/hospital";
@@ -23,7 +24,7 @@ export function Receipt({ a }: { a: Appointment }) {
       <div className="grid gap-6 p-6 sm:grid-cols-[1fr_auto]">
         <dl className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 text-sm">
           <dt className="text-muted-foreground">Appointment ID</dt><dd className="font-mono font-bold">{a.id}</dd>
-          {rows.map(([k, v]) => (<><dt key={k} className="text-muted-foreground">{k}</dt><dd key={k + "v"} className="font-medium">{v}</dd></>))}
+          {rows.map(([k, v]) => (<Fragment key={k}><dt className="text-muted-foreground">{k}</dt><dd className="font-medium">{v}</dd></Fragment>))}
           <dt className="text-muted-foreground">Status</dt><dd><StatusBadge status={a.status} /></dd>
         </dl>
         <div className="flex flex-col items-center justify-center rounded-2xl border-2 border-dashed border-primary/40 bg-secondary px-8 py-6 text-center">
