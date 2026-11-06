@@ -1,26 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  CalendarPlus, Clock, Ticket, ShieldCheck, ArrowRight, Users, Search, Ambulance, FlaskConical, Pill, Syringe, MapPin,
+  CalendarPlus, Clock, Ticket, ShieldCheck, ArrowRight, Users, Search, MapPin,
 } from "lucide-react";
 import hero from "@/assets/hero-hospital.jpg";
 import consult from "@/assets/consultation.jpg";
 import { DEPARTMENTS, DOCTORS, dept } from "@/lib/hospital";
 import { meta } from "@/lib/meta";
 import { DemoBanner } from "@/components/SiteLayout";
+import { SERVICES } from "@/lib/services";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: meta("SmartCare – Adichunchanagiri Hospital Appointments", "Book a doctor appointment online and track your live queue token at Adichunchanagiri Hospital, Bellur Cross, Karnataka.") }),
   component: Index,
 });
 
-export const SERVICES = [
-  { icon: CalendarPlus, title: "Online Appointments", text: "Book with your preferred doctor in under a minute." },
-  { icon: Ticket, title: "Smart Queue Tokens", text: "Get a token number and know when it's your turn." },
-  { icon: FlaskConical, title: "Laboratory & Diagnostics", text: "Investigations ordered during your consultation." },
-  { icon: Pill, title: "Pharmacy", text: "Collect prescribed medicines after your visit." },
-  { icon: Syringe, title: "Vaccinations", text: "Child and adult immunisation through Paediatrics & Medicine." },
-  { icon: Ambulance, title: "Emergency Guidance", text: "For emergencies, go directly to the emergency department." },
-];
 
 function Index() {
   return (

@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { SERVICES } from "./index";
+import { SERVICES } from "@/lib/services";
 import { meta } from "@/lib/meta";
 import { PageHero } from "@/components/SiteLayout";
 
