@@ -55,7 +55,7 @@ function Book() {
     const r = schema.safeParse(f);
     const errors: Record<string, string> = {};
     if (!r.success) r.error.issues.forEach((i) => { errors[String(i.path[0])] ??= i.message; });
-    if (f.date && (f.date < today || f.date > max)) errors.date = "Choose a date within the next 30 days";
+    if (f.date && (f.date < today || f.date > max)) errors["date"] = "Choose a date within the next 30 days";
     if (Object.keys(errors).length || !r.success) { setErr(errors); toast.error("Please fix the highlighted fields"); return; }
     const res = bookAppointment(r.data);
     if (!res.ok) { setErr({ time: res.error }); toast.error(res.error); return; }

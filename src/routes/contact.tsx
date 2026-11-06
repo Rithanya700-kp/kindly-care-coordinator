@@ -63,7 +63,7 @@ function Contact() {
           <div>
             <label className="text-sm font-medium">Message</label>
             <textarea className="field mt-1 min-h-32" maxLength={1000} value={f.message} onChange={(e) => setF({ ...f, message: e.target.value })} />
-            {err.message && <p className="mt-1 text-xs text-destructive">{err.message}</p>}
+            {err["message"] && <p className="mt-1 text-xs text-destructive">{err["message"]}</p>}
           </div>
           <button className="btn btn-primary w-full">Send enquiry</button>
         </form>

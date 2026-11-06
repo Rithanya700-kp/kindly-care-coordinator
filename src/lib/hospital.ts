@@ -50,8 +50,8 @@ export const DOCTORS: Doctor[] = Object.entries(raw).flatMap(([deptId, names]) =
     id: `${deptId}-${i + 1}`,
     name,
     deptId,
-    days: DAYS[i % DAYS.length],
-    hours: HOURS[i % HOURS.length],
+    days: DAYS[i % DAYS.length]!,
+    hours: HOURS[i % HOURS.length]!,
     sample: deptId === "cardio" || deptId === "neuro",
   })),
 );
@@ -81,7 +81,7 @@ function seed(): State {
   ] as const;
   people.forEach(([n, age, g, m, docId, reason], i) => {
     const d = doctor(docId)!;
-    const time = SLOTS[list.filter((a) => a.doctorId === docId).length];
+    const time = SLOTS[list.filter((a) => a.doctorId === docId).length]!;
     list.push({
       id: `SC-DEMO${String(i + 1).padStart(2, "0")}`,
       token: nextToken(list, docId, t, dept(d.deptId)!.prefix),
